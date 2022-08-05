@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import { MessageText, PromotionsContainer } from "../../styles/promotions";
-import { Box } from "@mui/system";
-import { Slide } from "@mui/material";
+import React, { useEffect, useRef, useState } from 'react';
+import { MessageText, PromotionsContainer } from '../../styles/promotions';
+import { Box } from '@mui/system';
+import { Slide } from '@mui/material';
 const messages = [
-  "20% off on your first order!",
-  "Summer sale starts now, visit any store.",
-  "Please like and subscribe :)",
+  '20% off on your first order!',
+  'Summer sale starts now, visit any store.',
+  'Please like and subscribe :)',
 ];
 
 const Promotions = () => {
@@ -35,14 +35,14 @@ const Promotions = () => {
     <PromotionsContainer ref={containerRef}>
       <Slide
         container={containerRef.current}
-        direction={show ? "left" : "right"}
+        direction={show ? 'left' : 'right'}
         in={show}
         timeout={{
           enter: 500,
           exit: 100,
         }}
       >
-        <Box display={"flex"} justifyContent="center" alignItems="center">
+        <Box display={'flex'} justifyContent="center" alignItems="center">
           <MessageText>{messages[messageIndex]}</MessageText>
         </Box>
       </Slide>
