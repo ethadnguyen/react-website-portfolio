@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Stack, Tooltip } from '@mui/material';
 import {
   Product,
   ProductActionButton,
@@ -36,24 +36,27 @@ const SingleProductDesktop = ({ product, matches }) => {
         <ProductFavButton isFav={0}>
           <FavoriteIcon />
         </ProductFavButton>
-
-        {showOptions && (
+        {(showOptions || matches) && (
           <ProductAddToCart show={showOptions} variant='contained'>
             Add to Cart
           </ProductAddToCart>
         )}
-        <ProductActionWrapper show={showOptions}>
-          <Stack direction={'column'}>
+        <ProductActionWrapper show={showOptions || matches}>
+          <Stack direction={matches ? 'row' : 'column'}>
             <ProductActionButton>
-              <ShareIcon color='primary' />
+              <Tooltip placement='left' title='share this product'>
+                <ShareIcon color='primary' />
+              </Tooltip>
             </ProductActionButton>
             <ProductActionButton onClick={() => showProductDetailDialog()}>
-              <FitScreenIcon color='primary' />
+              <Tooltip placement='left' title='Full view'>
+                <FitScreenIcon color='primary' />
+              </Tooltip>
             </ProductActionButton>
           </Stack>
         </ProductActionWrapper>
-        <ProductMeta product={product} matches={matches} />
       </Product>
+      <ProductMeta product={product} matches={matches} />
       <ProductDetailDialog product={product} />
     </>
   );

@@ -17,7 +17,7 @@ const Products = () => {
       sm={4}
       md={4}
       display='flex'
-      flexDirection='coloumn'
+      flexDirection='column'
       alignItems='center'
     >
       {matches ? (
@@ -30,7 +30,7 @@ const Products = () => {
 
   return (
     <Container>
-      <Box display='flex' justifyContent='center' sx={{ padding: 4 }}>
+      <Box display='flex' justifyContent='center' sx={{ p: 4 }}>
         <Typography>Our Products</Typography>
       </Box>
       <Grid
